@@ -7,13 +7,10 @@ declare let jQuery: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-<<<<<<< HEAD
 
 export class AppComponent {
   title = 'Noteflix';
 
-=======
-export class AppComponent /*implements OnInit*/ {
     
    /* ngOnInit() {
         this.initSlick();
@@ -59,4 +56,3 @@ export class AppComponent /*implements OnInit*/ {
 =======
     }*/
 }
->>>>>>> branch 'master' of https://github.com/Ferran99/Noteflix.git
