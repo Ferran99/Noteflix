@@ -7,6 +7,12 @@ declare let jQuery: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+<<<<<<< HEAD
+
+export class AppComponent {
+  title = 'Noteflix';
+
+=======
 export class AppComponent /*implements OnInit*/ {
     
    /* ngOnInit() {
@@ -14,6 +20,7 @@ export class AppComponent /*implements OnInit*/ {
         
     }  title = 'Noteflix';
   
+>>>>>>> branch 'master' of https://github.com/Ferran99/Noteflix.git
     
     initSlick() {
        /* jQuery('.slick').slick({
@@ -46,5 +53,10 @@ export class AppComponent /*implements OnInit*/ {
                 },              
            ]
         });
+<<<<<<< HEAD
+    }
+}
+=======
     }*/
 }
+>>>>>>> branch 'master' of https://github.com/Ferran99/Noteflix.git
