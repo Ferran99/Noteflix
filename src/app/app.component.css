@@ -32,15 +32,15 @@ html {
 		   margin-left:15px;
 		}
 
-		.image:hover {
+		/*.image:hover {
 		   -webkit-transform: scale(1.35);
 		   transform: scale(1.35);
 		   opacity: .9;
-		}
+		}*/
 
 		.image {
-		   -webkit-transition: all 0.7s ease;
-		   transition: all 0.7s ease;
+		   /*-webkit-transition: all 0.7s ease;
+		   transition: all 0.7s ease;*/
 		   padding: 15px;
 		   margin:auto;
 
@@ -124,7 +124,7 @@ html {
 		    position:absolute;
 		    background: #555;
 		    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    		background-size: 100% 100%;
 		    overflow-x: hidden;
 		    padding-top: 60px;
 		}
@@ -168,6 +168,4 @@ html {
 		p{
 			margin:0;
 		}
-		#row2{
-			position:relative;
-		}	
+		
