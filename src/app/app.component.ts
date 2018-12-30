@@ -11,48 +11,24 @@ declare let jQuery: any;
 export class AppComponent {
   title = 'Noteflix';
 
-    
-   /* ngOnInit() {
-        this.initSlick();
-        
-    }  title = 'Noteflix';
-  
->>>>>>> branch 'master' of https://github.com/Ferran99/Noteflix.git
-    
-    initSlick() {
-       /* jQuery('.slick').slick({
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 3,
-           /* prevArrow: jQuery('.prev'),
-            nextArrow: jQuery('.next'),*/
-           /* responsive: [
-                {
-                    'breakpoint': 999,
-                    'settings': {
-                        'slidesToShow': 3,
-                        'slidesToScroll': 3
-                    }
-                },
-                {
-                    'breakpoint': 987,
-                    'settings': {
-                        'slidesToShow': 2,
-                        'slidesToScroll': 2
-                    }
-                },
-                {
-                    'breakpoint': 768,
-                    'settings': {
-                        'slidesToShow': 1,
-                        'slidesToScroll': 1
-                    }
-                },              
-           ]
-        });
-<<<<<<< HEAD
-    }
-}
-=======
-    }*/
+  peliculas = [
+               {
+                   "film": "AQUAMAN",
+                   "director": "James Wan",
+                   "genre": "Science fiction",
+                   "url": "https://daw2-ferran-castane.000webhostapp.com/Pelis/Aquaman-OfficialTrailer1.mp4"
+               },
+               {
+                   "film": "BOHEMIAN RHAPSODY",
+                   "director": "Bryan Singer",
+                   "genre": "Biography, Music, Drama",
+                   "url": "https://daw2-ferran-castane.000webhostapp.com/Pelis/BohemianRhapsody-OfficialTrailer[HD]-20thCenturyFOX.mp4"
+
+               },
+               {
+                   "film": "SUPERLÓPEZ",
+                   "director": "Javier Ruiz Caldera",
+                   "genre": "Comedy"
+               }];
+
 }
