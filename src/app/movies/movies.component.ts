@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MovieService } from '../movie.service';
+import { Movie } from "src/app/Movies";
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
@@ -7,29 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviesComponent implements OnInit {
 
-  constructor() { }
+    movies: Movie[];
 
-  ngOnInit() {
-  }
-  
-  peliculas = [
-               {
-                   "film": "AQUAMAN",
-                   "director": "James Wan",
-                   "genre": "Science fiction",
-                   "url": "https://daw2-ferran-castane.000webhostapp.com/Pelis/Aquaman-OfficialTrailer1.mp4"
-               },
-               {
-                   "film": "BOHEMIAN RHAPSODY",
-                   "director": "Bryan Singer",
-                   "genre": "Biography, Music, Drama",
-                   "url": "https://daw2-ferran-castane.000webhostapp.com/Pelis/BohemianRhapsody-OfficialTrailer[HD]-20thCenturyFOX.mp4"
 
-               },
-               {
-                   "film": "SUPERLÓPEZ",
-                   "director": "Javier Ruiz Caldera",
-                   "genre": "Comedy"
-               }];
+constructor(private movieService: MovieService) { }
 
+ngOnInit() {
+  this.getMovies();
+}
+
+getMovies(): void {
+  this.movieService.getMovies()
+  .subscribe(movies => this.movies = movies);
+}
+ 
 }

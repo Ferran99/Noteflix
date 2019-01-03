@@ -14,5 +14,9 @@ export class MovieService {
   getMovies(): Observable <Movie[]> {
           return of (MOVIES);
   }
-  
+  /*searchMovies(term: string): Observable <Movie[]>{
+      
+      
+      
+  }*/
 }
