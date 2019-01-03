@@ -1,3 +1,8 @@
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><p>
-  movies works!
-</p>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<ul>
+                <li *ngFor="let peli of peliculas">
+                  <p>Title: {{peli["film"]}}</p>
+                  <p>Director: {{peli["director"]}}</p>
+                  <p>Genre: {{peli["genre"]}}</p>
+                </li>
+               </ul>

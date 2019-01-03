@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
-import { OnInit } from "@angular/core";
+import { Movie } from './Movies';
+import { MOVIES } from './mock-movies';
+
+
 declare let jQuery: any;
+
+
 
 @Component({
   selector: 'app-root',
@@ -8,7 +13,8 @@ declare let jQuery: any;
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent{
+    
   title = 'Noteflix';
 
   peliculas = [
