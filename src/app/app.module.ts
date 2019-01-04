@@ -13,6 +13,12 @@ import { AppComponent } from './MoviesList.component';
 
 */
 
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule, MatIconModule, MatSelectModule, MatToolbarModule } from '@angular/material';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 
@@ -32,7 +38,13 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
     BrowserModule,
     AppRoutingModule,
     MatProgressSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatIconModule,
+    NgxMatSelectSearchModule,
+    ReactiveFormsModule
 
     ],
   providers: [],

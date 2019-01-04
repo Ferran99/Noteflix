@@ -16,6 +16,9 @@ export class MovieService {
   }
   /*searchMovies(term: string): Observable <Movie[]>{
       
+      if (!term.trim()) {
+          return of([]);
+      }
       
       
   }*/

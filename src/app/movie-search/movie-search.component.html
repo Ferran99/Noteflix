@@ -1,9 +1,74 @@
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br> <br>
+<br>
 
-<ul>
-                <li *ngFor="let movie of movies">
-                  <p>Title: {{movie["title"]}}</p>
-                  <p>Director: {{movie["director"]}}</p>
-                  <p>Genre: {{movie["genre"]}}</p>
-                </li>
-               </ul>
+<div class="basic-container">
+  
+
+
+
+  
+    <mat-form-field>
+      <mat-select [formControl]="movieCtrl" placeholder="Movie" #singleSelect>
+        <ngx-mat-select-search  [placeholderLabel]="'Find movie...'" 
+                       [noEntriesFoundLabel]="'No matching movie found'" 
+                       [formControl]="movieFilterCtrl"></ngx-mat-select-search>
+        <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie">
+          {{movie.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+  <p>
+    Selected Movie: {{movieCtrl.value?.title}}
+  </p>
+
+  
+</div>
+
+<div class="basic-container">
+  
+
+
+
+  
+    <mat-form-field>
+      <mat-select [formControl]="movieCtrl" placeholder="Director" #singleSelect>
+        <ngx-mat-select-search  [placeholderLabel]="'Find director...'" 
+                       [noEntriesFoundLabel]="'No matching director found'" 
+                       [formControl]="movieFilterCtrl"></ngx-mat-select-search>
+        <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie">
+          {{movie.director}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+  <p>
+    Selected Director: {{movieCtrl.value?.director}}
+  </p>
+
+  
+</div>
+
+<div class="basic-container">
+  
+
+
+
+  
+    <mat-form-field>
+      <mat-select [formControl]="movieCtrl" placeholder="Genre" #singleSelect>
+        <ngx-mat-select-search  [placeholderLabel]="'Find genre...'" 
+                       [noEntriesFoundLabel]="'No matching genre found'" 
+                       [formControl]="movieFilterCtrl"></ngx-mat-select-search>
+        <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie">
+          {{movie.genre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+  <p>
+    Selected Genre: {{movieCtrl.value?.genre}}
+  </p>
+
+  
+</div>
