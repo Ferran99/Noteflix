@@ -1,12 +1,13 @@
 import { MovieService } from '../movie.service';
 import { BrowserModule } from '@angular/platform-browser';
+import { ElementRef } from '@angular/core';
 
 import { Movie } from "src/app/Movies";
 import { Observable, Subject } from "rxjs";
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ReplaySubject } from 'rxjs';
-import { MatSelect, VERSION } from '@angular/material';
+import { MatSelect } from '@angular/material';
 import { take, takeUntil } from 'rxjs/operators';
 
 
@@ -16,6 +17,11 @@ import { take, takeUntil } from 'rxjs/operators';
   styleUrls: ['./movie-search.component.css']
 })
 export class MovieSearchComponent implements OnInit, OnDestroy {
+    
+    @ViewChild("arrayMovies") arrayMovies: ElementRef;
+    @ViewChild("arrayMoviesSearch") arrayMoviesSearch: ElementRef;
+
+    
     
     movies: Movie[];
     /*movies$: Observable<Movie[]>;
@@ -33,15 +39,6 @@ export class MovieSearchComponent implements OnInit, OnDestroy {
     /** control for the MatSelect filter keyword multi-selection */
     public movieMultiFilterCtrl: FormControl = new FormControl();
     
-    /** list of banks */
-    /*private movies: Movie[] = [
-
-     { title: "AQUAMAN",director: "James Wan", genre: "Science fiction", url: "https://daw2-ferran-castane.000webhostapp.com/Pelis/Aquaman-OfficialTrailer1.mp4" },
-     { title: "BOHEMIAN RHAPSODY",director: "Bryan Singer", genre: "Biography", url: "https://daw2-ferran-castane.000webhostapp.com/Pelis/BohemianRhapsody-OfficialTrailer[HD]-20thCenturyFOX.mp4" },
-     { title: "SUPERLÓPEZ",director: "Javier Ruiz Caldera", genre: "Comedy", url: "https://daw2-ferran-castane.000webhostapp.com/Pelis/SUPERL%C3%93PEZTr%C3%A1ilerEspa%C3%B1ol2(2018)Comedia,Aventura.mp4"},
-    { title: "Los crímenes de Grindelwald", director: "David Yates",  genre: "Fantasy", url: "https://daw2-ferran-castane.000webhostapp.com/Pelis/AnimlesFantasticos-LosCrimenesdeGrindelwald-TrailerOficialComicCon.mp4"},
-
-    ];*/
 
     /** list of Movies filtered by search keyword */
     public filteredMovies: ReplaySubject<Movie[]> = new ReplaySubject<Movie[]>(1);
@@ -66,7 +63,7 @@ export class MovieSearchComponent implements OnInit, OnDestroy {
       this.movieFilterCtrl.valueChanges
         .pipe(takeUntil(this._onDestroy))
         .subscribe(() => {
-          this.filterBanks();
+          this.filterMovies();
         });
      
   }
@@ -80,7 +77,7 @@ export class MovieSearchComponent implements OnInit, OnDestroy {
       .subscribe(movies => this.movies = movies);
     }
   
-  private filterBanks() {
+  private filterMovies() {
       if (!this.movies) {
         return;
       }
@@ -97,5 +94,21 @@ export class MovieSearchComponent implements OnInit, OnDestroy {
         this.movies.filter(movie => movie.title.toLowerCase().indexOf(search) > -1)
       );
     }
+  
+  movieShow(){
+      
+      this.arrayMoviesSearch.nativeElement.classList.remove('display-none');
+      this.arrayMovies.nativeElement.classList.add('display-none');
+
+      
+  }
+  movieShowAll(){
+      this.arrayMoviesSearch.nativeElement.classList.add('display-none');
+      this.arrayMovies.nativeElement.classList.remove('display-none');
+      
+      
+  }
+  
+  
 
 }

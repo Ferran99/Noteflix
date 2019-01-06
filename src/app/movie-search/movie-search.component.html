@@ -1,5 +1,4 @@
-<br> <br>
-<br>
+
 
 <div class="basic-container">
   
@@ -8,19 +7,17 @@
 
   
     <mat-form-field>
-      <mat-select [formControl]="movieCtrl" placeholder="Movie" #singleSelect>
+      <mat-select [formControl]="movieCtrl" placeholder="Movie" #singleSelect >
         <ngx-mat-select-search  [placeholderLabel]="'Find movie...'" 
                        [noEntriesFoundLabel]="'No matching movie found'" 
-                       [formControl]="movieFilterCtrl"></ngx-mat-select-search>
-        <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie">
+                       [formControl]="movieFilterCtrl" ></ngx-mat-select-search>
+        <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie" (click)="movieShow()">
           {{movie.title}}
         </mat-option>
       </mat-select>
     </mat-form-field>
   
-  <p>
-    Selected Movie: {{movieCtrl.value?.title}}
-  </p>
+
 
   
 </div>
@@ -36,15 +33,13 @@
         <ngx-mat-select-search  [placeholderLabel]="'Find director...'" 
                        [noEntriesFoundLabel]="'No matching director found'" 
                        [formControl]="movieFilterCtrl"></ngx-mat-select-search>
-        <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie">
+        <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie" (click)="movieShow()">
           {{movie.director}}
         </mat-option>
       </mat-select>
     </mat-form-field>
   
-  <p>
-    Selected Director: {{movieCtrl.value?.director}}
-  </p>
+ 
 
   
 </div>
@@ -60,15 +55,32 @@
         <ngx-mat-select-search  [placeholderLabel]="'Find genre...'" 
                        [noEntriesFoundLabel]="'No matching genre found'" 
                        [formControl]="movieFilterCtrl"></ngx-mat-select-search>
-        <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie">
+        <mat-option *ngFor="let movie of filteredMovies | async" [value]="movie" (click)="movieShow()">
           {{movie.genre}}
         </mat-option>
       </mat-select>
     </mat-form-field>
   
-  <p>
-    Selected Genre: {{movieCtrl.value?.genre}}
-  </p>
+ 
 
   
 </div>
+
+ <ul   #arrayMovies >
+                <li *ngFor="let movie of movies">
+                  <p>Title: {{movie["title"]}}</p>
+                  <p>Director: {{movie["director"]}}</p>
+                  <p>Genre: {{movie["genre"]}}</p>
+                </li>
+       </ul>
+  
+  <ul class="display-none" #arrayMoviesSearch>
+                <li>
+                  <p>Title:  {{movieCtrl.value?.title}}</p>
+                  <p>Director: {{movieCtrl.value?.director}}</p>
+                  <p>Genre:  {{movieCtrl.value?.genre}}</p>
+                </li>
+               </ul>
+               
+                <mat-checkbox  (click)="movieShowAll()">See all movies</mat-checkbox>
+  

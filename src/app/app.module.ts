@@ -12,6 +12,7 @@ import { AppComponent } from './TVSeriesList.component';
 import { AppComponent } from './MoviesList.component';
 
 */
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -44,7 +45,9 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
     MatFormFieldModule,
     MatIconModule,
     NgxMatSelectSearchModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCheckboxModule
+
 
     ],
   providers: [],
