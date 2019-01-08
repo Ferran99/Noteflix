@@ -77,7 +77,7 @@
        
   -->
   
-  //Show all movies
+  <!-- Show all movies -->
   
   <div class="container"  #arrayMovies>
  	  <div *ngFor="let movie of movies" class="card u-clearfix" >
@@ -94,6 +94,7 @@
     
     <div class="card-body">
       <h2 class="card-body-heading">{{movie["title"]}}</h2>
+      <br />
       <h4 class="card-body-heading">{{movie["director"]}}</h4>
       <div class="card-body-options">
         <div class="card-body-option card-body-option-favorite">
@@ -142,16 +143,7 @@
         </li>
       </ul>
       <a href="#/" class="card-button card-button-cta">
-        Buy  $12.99
-      </a>
-      <a href="#/" class="card-button card-button-link">
-        More info
-        <span class="card-button-icon">
-          <svg fill="#9C948A" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 0h24v24H0z" fill="none"/>
-            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-          </svg>
-        </span>
+       More info
       </a>
     </div>
   </div>
@@ -159,7 +151,7 @@
        
        
        
-  //show movie that have been searched  
+  <!-- Show movie that have been searched    -->
  <div class="container">
  	  <div  class="card u-clearfix display-none" #arrayMoviesSearch >
     <div class="card-media">
@@ -175,6 +167,7 @@
     
     <div class="card-body">
       <h2 class="card-body-heading"> {{movieCtrl.value?.title}}</h2>
+      <br />
       <h4 class="card-body-heading"> {{movieCtrl.value?.director}}</h4>
       <div class="card-body-options">
         <div class="card-body-option card-body-option-favorite">
@@ -223,16 +216,7 @@
         </li>
       </ul>
       <a href="#/" class="card-button card-button-cta">
-        Buy  $12.99
-      </a>
-      <a href="#/" class="card-button card-button-link">
         More info
-        <span class="card-button-icon">
-          <svg fill="#9C948A" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 0h24v24H0z" fill="none"/>
-            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-          </svg>
-        </span>
       </a>
     </div>
   </div>
