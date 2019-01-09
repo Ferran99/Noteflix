@@ -4,7 +4,7 @@ import { ElementRef } from '@angular/core';
 
 import { Movie } from 'src/app/Movies';
 import { Observable, Subject } from 'rxjs';
-import {Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ReplaySubject } from 'rxjs';
 import { MatSelect } from '@angular/material';
@@ -12,9 +12,9 @@ import { take, takeUntil } from 'rxjs/operators';
 
 
 @Component({
-  selector: 'app-movie-search',
-  templateUrl: './movie-search.component.html',
-  styleUrls: ['./movie-search.component.css']
+    selector: 'app-movie-search',
+    templateUrl: './movie-search.component.html',
+    styleUrls: ['./movie-search.component.css']
 })
 export class MovieSearchComponent implements OnInit, OnDestroy {
 
@@ -53,61 +53,61 @@ export class MovieSearchComponent implements OnInit, OnDestroy {
     /*search(term: string): void {
         this.searchTerms.next(term);
       }*/
-  ngOnInit() {
-      this.getMovies();
+    ngOnInit() {
+        this.getMovies();
 
-   // load the initial movie list
-      this.filteredMovies.next(this.movies.slice());
-
-      // listen for search field value changes
-      this.movieFilterCtrl.valueChanges
-        .pipe(takeUntil(this._onDestroy))
-        .subscribe(() => {
-          this.filterMovies();
-        });
-
-  }
-  ngOnDestroy() {
-      this._onDestroy.next();
-      this._onDestroy.complete();
-    }
-
-  getMovies(): void {
-      this.movieService.getMovies()
-      .subscribe(movies => this.movies = movies);
-    }
-
-  private filterMovies() {
-      if (!this.movies) {
-        return;
-      }
-      // get the search keyword
-      let search = this.movieFilterCtrl.value;
-      if (!search) {
+        // load the initial movie list
         this.filteredMovies.next(this.movies.slice());
-        return;
-      } else {
-        search = search.toLowerCase();
-      }
-      // filter the movies
-      this.filteredMovies.next(
-        this.movies.filter(movie => movie.title.toLowerCase().indexOf(search) > -1)
-      );
+
+        // listen for search field value changes
+        this.movieFilterCtrl.valueChanges
+            .pipe(takeUntil(this._onDestroy))
+            .subscribe(() => {
+                this.filterMovies();
+            });
+
+    }
+    ngOnDestroy() {
+        this._onDestroy.next();
+        this._onDestroy.complete();
     }
 
-  movieShow() {
+    getMovies(): void {
+        this.movieService.getMovies()
+            .subscribe(movies => this.movies = movies);
+    }
 
-      this.arrayMoviesSearch.nativeElement.classList.remove('display-none');
-      this.arrayMovies.nativeElement.classList.add('display-none');
+    private filterMovies() {
+        if (!this.movies) {
+            return;
+        }
+        // get the search keyword
+        let search = this.movieFilterCtrl.value;
+        if (!search) {
+            this.filteredMovies.next(this.movies.slice());
+            return;
+        } else {
+            search = search.toLowerCase();
+        }
+        // filter the movies
+        this.filteredMovies.next(
+            this.movies.filter(movie => movie.title.toLowerCase().indexOf(search) > -1)
+        );
+    }
+
+    movieShow() {
+
+        this.arrayMoviesSearch.nativeElement.classList.remove('display-none');
+        this.arrayMovies.nativeElement.classList.add('display-none');
 
 
-  }
-  movieShowAll() {
-      this.arrayMoviesSearch.nativeElement.classList.add('display-none');
-      this.arrayMovies.nativeElement.classList.remove('display-none');
+    }
+    movieShowAll() {
+        this.arrayMoviesSearch.nativeElement.classList.add('display-none');
+        this.arrayMovies.nativeElement.classList.remove('display-none');
 
 
-  }
+    }
 
 
 

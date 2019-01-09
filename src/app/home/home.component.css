@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+h1{
+    margin-top: 5%;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 70px;
+    margin-bottom: 5%;
+    text-align: center;
+    color: white;
+
+}
+.img {
+    height: 650px;
+}

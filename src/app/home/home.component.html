@@ -1,34 +1,28 @@
- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
+<h1>Most popular</h1>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <video class="d-block w-100" controls>
-        <source src="https://daw2-ferran-castane.000webhostapp.com/Pelis/BohemianRhapsody-OfficialTrailer[HD]-20thCenturyFOX.mp4"
-          type="video/mp4">
-      </video>
+      <img class="d-block w-100  img" src="https://daw2-ferran-castane.000webhostapp.com/Imatges/aciegas.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <video class="d-block w-100" controls>
-        <source src="https://daw2-ferran-castane.000webhostapp.com/Pelis/Aquaman-OfficialTrailer1.mp4" type="video/mp4">
-      </video>
+      <img class="d-block w-100  img" src="https://daw2-ferran-castane.000webhostapp.com/Imatges/marypoppins.jpg" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <video class="d-block w-100 h-25" controls>
-        <source src="https://daw2-ferran-castane.000webhostapp.com/Pelis/SUPERL%C3%93PEZTr%C3%A1ilerEspa%C3%B1ol2(2018)Comedia,Aventura.mp4" type="video/mp4">
-      </video>
+      <img class="d-block w-100  img" src="https://daw2-ferran-castane.000webhostapp.com/Imatges/loscrimenes.jpg" alt="Third slide">
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
-
+<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)" (breakpoint)="breakpoint($event)"
+  (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+  <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+    <img src="{{ slide.img }}" alt="" width="100%">
+  </div>
+</ngx-slick-carousel>

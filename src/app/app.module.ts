@@ -13,6 +13,7 @@ import { AppComponent } from './MoviesList.component';
 
 */
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -30,7 +31,6 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
     HomeComponent,
     FavouritesComponent,
     MovieSearchComponent,
-    
     /*FavouritesListComponent,
     TVSeriesListComponent,
     MoviesListComponent*/
@@ -46,11 +46,29 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
     MatIconModule,
     NgxMatSelectSearchModule,
     ReactiveFormsModule,
-    MatCheckboxModule
-
+    MatCheckboxModule,
+    SlickCarouselModule
 
     ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule  { }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
