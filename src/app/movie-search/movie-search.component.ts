@@ -18,8 +18,12 @@ import { take, takeUntil } from 'rxjs/operators';
 })
 export class MovieSearchComponent implements OnInit, OnDestroy {
 
-    @ViewChild('arrayMovies') arrayMovies: ElementRef;
-    @ViewChild('arrayMoviesSearch') arrayMoviesSearch: ElementRef;
+  @ViewChild('arrayMovies') arrayMovies: ElementRef;
+  @ViewChild('arrayMoviesSearch') arrayMoviesSearch: ElementRef;
+  @ViewChild('corazonGris') corazonGris: ElementRef;
+  @ViewChild('corazonRojo') corazonRojo: ElementRef;
+
+
 
 
 
@@ -108,6 +112,18 @@ export class MovieSearchComponent implements OnInit, OnDestroy {
 
 
     }
+  showRed(){
+    this.corazonGris.nativeElement.classList.add('display-none');
+
+    this.corazonRojo.nativeElement.classList.remove('display-none');
+
+  }
+  showGrey(){
+    this.corazonGris.nativeElement.classList.remove('display-none');
+
+    this.corazonRojo.nativeElement.classList.add('display-none');
+
+  }
 
 
 
