@@ -18,8 +18,15 @@ export class HomeComponent   {
     {img: 'https://daw2-ferran-castane.000webhostapp.com/Imatges/bohemian.jpeg'},
     {img: 'https://daw2-ferran-castane.000webhostapp.com/Imatges/aquaman.jpg'},
     {img: 'https://daw2-ferran-castane.000webhostapp.com/Imatges/superlopez.jpeg'},
-    {img: 'https://daw2-ferran-castane.000webhostapp.com/Imatges/atman.jpg'}
+    {img: 'https://daw2-ferran-castane.000webhostapp.com/Imatges/atman2.jpg'}
   ];
+  sildes_principal = [
+    {img: 'https://daw2-ferran-castane.000webhostapp.com/Imatges/aciegas.jpg'},
+    {img: 'https://daw2-ferran-castane.000webhostapp.com/Imatges/marypoppins.jpg'},
+    {img: 'https://daw2-ferran-castane.000webhostapp.com/Imatges/loscrimenes.jpg'}
+
+  ];
+  slides_principalConfig = {'slides_principalToShow':1, 'slides_principalToScroll':1};
   slideConfig = {'slidesToShow': 2, 'slidesToScroll': 2};
 
 
