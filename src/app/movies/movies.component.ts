@@ -1,25 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { MovieService } from '../movie.service';
 import { Movie } from "src/app/Movies";
+import { ElementRef } from '@angular/core';
+
 @Component({
     selector: 'app-movies',
     templateUrl: './movies.component.html',
     styleUrls: ['./movies.component.css']
 })
+
 export class MoviesComponent implements OnInit {
 
-    movies: Movie[];
+  @ViewChild('arrayMovies') arrayMovies: ElementRef;
 
 
-    constructor(private movieService: MovieService) { }
+  movies: Movie[] = [];
 
-    ngOnInit() {
-        this.getMovies();
-    }
 
-    getMovies(): void {
-        this.movieService.getMovies()
-            .subscribe(movies => this.movies = movies);
-    }
+  constructor(private movieService: MovieService) {
+  }
 
+  ngOnInit() {
+    this.getMovies();
+  }
+
+  getMovies(): void {
+    this.movieService.getMovies()
+      .subscribe(movies => this.movies = movies.slice(1, 5));
+  }
+
+  movieHide() {
+
+    this.arrayMovies.nativeElement.classList.add('display-none');
+
+
+  }
 }

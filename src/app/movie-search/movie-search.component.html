@@ -1,5 +1,7 @@
 
 
+<br><br><br><br><br><br><br><br><br><br><br>
+<!--
 <div class="basic-container">
 
 
@@ -57,7 +59,7 @@
 
 </div>
 
-<!-- 
+
  <ul   #arrayMovies >
                 <li *ngFor="let movie of movies">
                   <p>Title: {{movie["title"]}}</p>
@@ -65,84 +67,15 @@
                   <p>Genre: {{movie["genre"]}}</p>
                 </li>
        </ul>
-       
-  -->
-
-<!-- Show all movies -->
-
-<div class="container" #arrayMovies>
-	<div *ngFor="let movie of movies" class="card u-clearfix">
-		<div class="card-media">
-			<img src="https://s18.postimg.cc/v0mympf7t/lmf1.jpg" alt=""
-				class="card-media-img" />
-			<div class="card-media-preview u-flex-center">
-				<svg fill="#ffffff" height="18" viewBox="0 0 24 24" width="18"
-					xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 5v14l11-7z" />
-          <path d="M0 0h24v24H0z" fill="none" />
-        </svg>
-			</div>
-			<span class="card-media-tag card-media-tag-orange">{{movie["genre"]}}</span>
-		</div>
-
-		<div class="card-body">
-			<h2 class="card-body-heading">{{movie["title"]}}</h2>
-			<br />
-			<h4 class="card-body-heading">{{movie["director"]}}</h4>
-			<div class="card-body-options">
-				<div class="card-body-option card-body-option-favorite"  >
-
-          <button mat-icon-button disabled  class="" (click)="showRed()" >
-            <mat-icon aria-label="Example icon-button with a heart icon" >favorite</mat-icon>
-          </button>
-				</div>
-				<div class="card-body-option card-body-option-share" #corazonRojo>
-          <button mat-icon-button color="warn" class="display-none"  (click)="showGrey()">
-            <mat-icon aria-label="Example icon-button with a heart icon" >favorite</mat-icon>
-          </button>
-
-				</div>
-			</div>
-			<ul class="card-body-stars u-clearfix">
-				<li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
-						width="28" xmlns="http://www.w3.org/2000/svg">
-            <path
-							d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
-            <path d="M0 0h18v18H0z" fill="none" />
-          </svg></li>
-				<li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
-						width="28" xmlns="http://www.w3.org/2000/svg">
-            <path
-							d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
-            <path d="M0 0h18v18H0z" fill="none" />
-          </svg></li>
-				<li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
-						width="28" xmlns="http://www.w3.org/2000/svg">
-            <path
-							d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
-            <path d="M0 0h18v18H0z" fill="none" />
-          </svg></li>
-				<li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
-						width="28" xmlns="http://www.w3.org/2000/svg">
-            <path
-							d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
-            <path d="M0 0h18v18H0z" fill="none" />
-          </svg></li>
-				<li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
-						width="28" xmlns="http://www.w3.org/2000/svg">
-            <path
-							d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
-            <path d="M0 0h18v18H0z" fill="none" />
-          </svg></li>
-			</ul>
-			<a href="#/" class="card-button card-button-cta"> More info </a>
-		</div>
-	</div>
-</div>
 
 
 
-<!-- Show movie that have been searched    -->
+ Show all movies
+
+
+
+
+Show movie that have been searched
 <div class="container">
 	<div class="card u-clearfix display-none" #arrayMoviesSearch>
 		<div class="card-media">
@@ -217,14 +150,96 @@
 	</div>
 </div>
 
-<!--  <ul class="display-none" #arrayMoviesSearch >
+<ul class="display-none" #arrayMoviesSearch >
                 <li>
                   <p>Title:  {{movieCtrl.value?.title}}</p>
                   <p>Director: {{movieCtrl.value?.director}}</p>
                   <p>Genre:  {{movieCtrl.value?.genre}}</p>
                 </li>
                </ul>
-           -->
+           -
 
 <mat-checkbox (click)="movieShowAll()">See all movies</mat-checkbox>
 
+-->
+<div id="search-component">
+  <h4>Movie Search</h4>
+
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  <div class="container" >
+    <div  *ngFor="let movie of movies$ | async" class="card u-clearfix">
+      <div class="card-media">
+        <img src="https://s18.postimg.cc/v0mympf7t/lmf1.jpg" alt=""
+             class="card-media-img" />
+        <div class="card-media-preview u-flex-center">
+          <svg fill="#ffffff" height="18" viewBox="0 0 24 24" width="18"
+               xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 5v14l11-7z" />
+            <path d="M0 0h24v24H0z" fill="none" />
+          </svg>
+        </div>
+        <span class="card-media-tag card-media-tag-orange">{{movie.genre}}</span>
+      </div>
+
+      <div class="card-body">
+        <h2 class="card-body-heading"> {{movie.title}}</h2>
+        <br />
+        <h4 class="card-body-heading">{{movie.director}}</h4>
+        <div class="card-body-options">
+          <div class="card-body-option card-body-option-favorite"  >
+
+            <button mat-icon-button disabled  class="" (click)="showRed()" >
+              <mat-icon aria-label="Example icon-button with a heart icon" >favorite</mat-icon>
+            </button>
+          </div>
+          <div class="card-body-option card-body-option-share" #corazonRojo>
+            <button mat-icon-button color="warn" class="display-none"  (click)="showGrey()">
+              <mat-icon aria-label="Example icon-button with a heart icon" >favorite</mat-icon>
+            </button>
+
+          </div>
+        </div>
+        <ul class="card-body-stars u-clearfix">
+          <li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
+                   width="28" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
+            <path d="M0 0h18v18H0z" fill="none" />
+          </svg></li>
+          <li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
+                   width="28" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
+            <path d="M0 0h18v18H0z" fill="none" />
+          </svg></li>
+          <li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
+                   width="28" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
+            <path d="M0 0h18v18H0z" fill="none" />
+          </svg></li>
+          <li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
+                   width="28" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
+            <path d="M0 0h18v18H0z" fill="none" />
+          </svg></li>
+          <li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
+                   width="28" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
+            <path d="M0 0h18v18H0z" fill="none" />
+          </svg></li>
+        </ul>
+        <a href="#/" class="card-button card-button-cta"> More info </a>
+      </div>
+    </div>
+  </div>
+  <!--<ul >
+    <li *ngFor="let movie of movies$ | async" class="movieResults">
+
+        {{movie.title}}
+
+    </li>
+  </ul> -->
+</div>

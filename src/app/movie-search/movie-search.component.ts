@@ -1,14 +1,11 @@
 import { MovieService } from '../movie.service';
-import { BrowserModule } from '@angular/platform-browser';
-import { ElementRef } from '@angular/core';
-
 import { Movie } from 'src/app/Movies';
+import {
+  debounceTime, distinctUntilChanged, switchMap
+} from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { ReplaySubject } from 'rxjs';
-import { MatSelect } from '@angular/material';
-import { take, takeUntil } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+
 
 
 @Component({
@@ -16,114 +13,39 @@ import { take, takeUntil } from 'rxjs/operators';
     templateUrl: './movie-search.component.html',
     styleUrls: ['./movie-search.component.css']
 })
-export class MovieSearchComponent implements OnInit, OnDestroy {
-
-  @ViewChild('arrayMovies') arrayMovies: ElementRef;
-  @ViewChild('arrayMoviesSearch') arrayMoviesSearch: ElementRef;
-  @ViewChild('corazonGris') corazonGris: ElementRef;
-  @ViewChild('corazonRojo') corazonRojo: ElementRef;
+export class MovieSearchComponent implements OnInit {
 
 
+  movies$: Observable<Movie[]>;
+  private searchTerms = new Subject<string>();
 
+  constructor(private movieService: MovieService) {}
 
+  // Push a search term into the observable stream.
+  search(term: string): void {
+    this.searchTerms.next(term);
+  }
 
-    movies: Movie[];
-    /*movies$: Observable<Movie[]>;
-    private searchTerms = new Subject<string>();*/
-
-    /** control for the selected movie */
-    public movieCtrl: FormControl = new FormControl();
-
-    /** control for the MatSelect filter keyword */
-    public movieFilterCtrl: FormControl = new FormControl();
-
-    /** control for the selected movie for multi-selection */
-    public movieMultiCtrl: FormControl = new FormControl();
-
-    /** control for the MatSelect filter keyword multi-selection */
-    public movieMultiFilterCtrl: FormControl = new FormControl();
-
-
-    /** list of Movies filtered by search keyword */
-    public filteredMovies: ReplaySubject<Movie[]> = new ReplaySubject<Movie[]>(1);
-
-    @ViewChild('singleSelect') singleSelect: MatSelect;
-
-    /** Subject that emits when the component has been destroyed. */
-    private _onDestroy = new Subject<void>();
-
-    constructor(private movieService: MovieService) { }
-
-    /*search(term: string): void {
-        this.searchTerms.next(term);
-      }*/
     ngOnInit() {
-        this.getMovies();
+      this.movies$ = this.searchTerms.pipe(
+        // wait 300ms after each keystroke before considering the term
+        debounceTime(300),
 
-        // load the initial movie list
-        this.filteredMovies.next(this.movies.slice());
+        // ignore new term if same as previous term
+        distinctUntilChanged(),
 
-        // listen for search field value changes
-        this.movieFilterCtrl.valueChanges
-            .pipe(takeUntil(this._onDestroy))
-            .subscribe(() => {
-                this.filterMovies();
-            });
+        // switch to new search observable each time the term changes
+        switchMap((term: string) => this.movieService.searchMovies(term)),
+        //switchMap((term:string)=>this.movieService.searchMoviesDirector(term)),
+       // switchMap((term:string)=>this.movieService.searchMoviesGenre(term)),
+      );
 
-    }
-    ngOnDestroy() {
-        this._onDestroy.next();
-        this._onDestroy.complete();
-    }
 
-    getMovies(): void {
-        this.movieService.getMovies()
-            .subscribe(movies => this.movies = movies);
-    }
-
-    private filterMovies() {
-        if (!this.movies) {
-            return;
-        }
-        // get the search keyword
-        let search = this.movieFilterCtrl.value;
-        if (!search) {
-            this.filteredMovies.next(this.movies.slice());
-            return;
-        } else {
-            search = search.toLowerCase();
-        }
-        // filter the movies
-        this.filteredMovies.next(
-            this.movies.filter(movie => movie.title.toLowerCase().indexOf(search) > -1)
-        );
-    }
-
-    movieShow() {
-
-        this.arrayMoviesSearch.nativeElement.classList.remove('display-none');
-        this.arrayMovies.nativeElement.classList.add('display-none');
 
 
     }
-    movieShowAll() {
-        this.arrayMoviesSearch.nativeElement.classList.add('display-none');
-        this.arrayMovies.nativeElement.classList.remove('display-none');
 
 
-    }
-  showRed(){
-    this.corazonGris.nativeElement.classList.add('display-none');
-
-    this.corazonRojo.nativeElement.classList.remove('display-none');
-
-  }
-  showGrey(){
-    this.corazonGris.nativeElement.classList.remove('display-none');
-
-    this.corazonRojo.nativeElement.classList.add('display-none');
-
-  }
 
 
 
