@@ -6,5 +6,6 @@ export class Movie {
     genre: string;
     url: string;
     img: string;
+    synopsis: string;
     
 }
