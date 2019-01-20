@@ -19,9 +19,6 @@ export class MovieService {
     this.messageService.add(`MovieService: ${message}`);
     }
 
-
-
-
   getMovies(): Observable <Movie[]> {
           return this.http.get<Movie[]>(this.moviesUrl)
             .pipe(
@@ -37,6 +34,7 @@ export class MovieService {
       catchError(this.handleError<Movie>(`getMovie id=${id}`))
     );
   }
+
   searchMovies(term: string): Observable<Movie[]> {
     if (!term.trim()) {
       // if not search term, return empty hero array.
@@ -47,6 +45,7 @@ export class MovieService {
       catchError(this.handleError<Movie[]>('searchMovies', []))
     );
   }
+
   searchMoviesDirector(term: string): Observable<Movie[]> {
     if (!term.trim()) {
       // if not search term, return empty hero array.
@@ -57,6 +56,7 @@ export class MovieService {
       catchError(this.handleError<Movie[]>('searchMovies', []))
     );
   }
+
   searchMoviesGenre(term: string): Observable<Movie[]> {
     if (!term.trim()) {
       // if not search term, return empty hero array.
@@ -67,6 +67,7 @@ export class MovieService {
       catchError(this.handleError<Movie[]>('searchMoviesGenre', []))
     );
   }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -80,5 +81,4 @@ export class MovieService {
       return of(result as T);
     };
   }
-
 }

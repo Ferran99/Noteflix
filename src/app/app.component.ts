@@ -22,13 +22,13 @@ export class AppComponent{
                    "film": "AQUAMAN",
                    "director": "James Wan",
                    "genre": "Science fiction",
-                   "url": "https://daw2-ferran-castane.000webhostapp.com/Pelis/Aquaman.mp4"
+                   "url": "https://daw2-ferran-castane.000webhostapp.com/video/Aquaman.mp4"
                },
                {
                    "film": "BOHEMIAN RHAPSODY",
                    "director": "Bryan Singer",
                    "genre": "Biography, Music, Drama",
-                   "url": "https://daw2-ferran-castane.000webhostapp.com/Pelis/BohemianRhapsody.mp4"
+                   "url": "https://daw2-ferran-castane.000webhostapp.com/video/BohemianRhapsody.mp4"
 
                },
                {

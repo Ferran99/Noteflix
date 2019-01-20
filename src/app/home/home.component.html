@@ -1,7 +1,7 @@
 <div class="div_home">
   <h1>Most popular</h1>
   <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slides_principalConfig">
-    <div ngxSlickItem *ngFor="let slide of sildes_principal" class="slide">
+    <div ngxSlickItem *ngFor="let slide of slides_principal" class="slide">
       <img src="{{ slide.img }}" alt="" class="img_sliderSecundari" width="100%">
     </div>
   </ngx-slick-carousel>
