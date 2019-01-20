@@ -65,7 +65,6 @@ ul.search-result {
   margin-left: 0px;
   padding-right: 15%;
 }
-
 .basic-container {
 
   display: inline-block;
@@ -139,6 +138,8 @@ html {
   float: left;
   margin-top: -25px;
   position: relative;
+  height: 150px;
+  width: 200px;
 }
 
 .card-media-preview {
@@ -176,7 +177,8 @@ html {
   letter-spacing: .4px;
   padding: 5px 8px;
   position: absolute;
-  left: 110px;
+  left: 180px;
+  margin-top: 100px;
   text-transform: uppercase;
   top: -10px;
 }
@@ -283,4 +285,30 @@ html {
   background-color: #ff2111;
   box-shadow: 0 0 6px rgba(0,0,0,.16), 0 6px 12px rgba(0,0,0,.32);
 }
+.allMovies {
+  background-color: #f21f23;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.likeBlack{
+  padding: 500%;
+  background-image: url("https://daw2-ferran-castane.000webhostapp.com/Imatges/likeBlack.svg");
+  background-color: white;
+  outline: none;
 
+}
+.like{
+  padding: 500%;
+  background-image: url("https://daw2-ferran-castane.000webhostapp.com/Imatges/like.svg");
+  background-color: white;
+  outline: none;
+
+
+}

@@ -28,7 +28,7 @@ export class MoviesComponent implements OnInit {
 
   getMovies(): void {
     this.movieService.getMovies()
-      .subscribe(movies => this.movies = movies.slice(1, 5));
+      .subscribe(movies => this.movies = movies.slice(0, 7));
   }
 
   movieHide() {
@@ -43,17 +43,5 @@ export class MoviesComponent implements OnInit {
     this.arrayMovies.nativeElement.classList.remove('display-none');
 
   }
-  showRed(){
 
-    this.corazonRojo.nativeElement.classList.remove('display-none');
-    this.croazonGris.nativeElement.classList.add('display-none');
-    console.log("hola");
-  }
-
-
-  showGrey() {
-    this.corazonRojo.nativeElement.classList.add('display-none');
-    this.croazonGris.nativeElement.classList.remove('display-none');
-    console.log('adeu');
-  }
 }
