@@ -169,7 +169,7 @@ Show movie that have been searched
   <div class="container" >
     <div  *ngFor="let movie of movies$ | async" class="card u-clearfix">
       <div class="card-media">
-        <img src="https://s18.postimg.cc/v0mympf7t/lmf1.jpg" alt=""
+        <img src="{{movie.img}}" alt=""
              class="card-media-img" />
         <div class="card-media-preview u-flex-center">
           <svg fill="#ffffff" height="18" viewBox="0 0 24 24" width="18"
@@ -186,39 +186,7 @@ Show movie that have been searched
         <br />
         <h4 class="card-body-heading">{{movie.director}}</h4>
 
-        <ul class="card-body-stars u-clearfix">
-          <li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
-                   width="28" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
-            <path d="M0 0h18v18H0z" fill="none" />
-          </svg></li>
-          <li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
-                   width="28" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
-            <path d="M0 0h18v18H0z" fill="none" />
-          </svg></li>
-          <li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
-                   width="28" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
-            <path d="M0 0h18v18H0z" fill="none" />
-          </svg></li>
-          <li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
-                   width="28" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
-            <path d="M0 0h18v18H0z" fill="none" />
-          </svg></li>
-          <li><svg fill="#D3BCA2" height="28" viewBox="0 0 18 18"
-                   width="28" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z" />
-            <path d="M0 0h18v18H0z" fill="none" />
-          </svg></li>
-        </ul>
-        <a class="nav-link"routerLink="/detail/{{movie.id}}" class="card-button card-button-cta"> More info </a>
+       <a class="nav-link"routerLink="/detail/{{movie.id}}" class="card-button card-button-cta"> More info </a>
       </div>
     </div>
   </div>
