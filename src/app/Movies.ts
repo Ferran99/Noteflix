@@ -5,5 +5,6 @@ export class Movie {
     director: string;
     genre: string;
     url: string;
+    img: string;
     
 }
