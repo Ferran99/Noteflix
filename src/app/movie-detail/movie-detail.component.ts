@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { MovieService } from '../movie.service';
 import { Movie } from "src/app/Movies";
+import {ViewChild} from '@angular/core';
+import { ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-movie-detail',
@@ -11,6 +13,8 @@ import { Movie } from "src/app/Movies";
 })
 export class MovieDetailComponent implements OnInit {
   @Input() movie: Movie;
+  @ViewChild('video') video: ElementRef;
+  @ViewChild('img') img: ElementRef;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,6 +36,9 @@ export class MovieDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
+playVideo(){
+    this.img.nativeElement.classList.add('display-none');
+    this.video.nativeElement.classList.remove('display-none');
+}
 
 }

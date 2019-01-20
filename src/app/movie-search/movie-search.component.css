@@ -59,16 +59,10 @@ h1{
 ul.search-result {
   margin-top: 0;
   padding-left: 0;
-}
-.movieResults{
-  background-color: white;
-  margin-left: 0px;
-  padding-right: 15%;
-}
-.basic-container {
+}.basic-container {
 
-  display: inline-block;
-}
+   display: inline-block;
+ }
 
 .display-none{
   display: none;
