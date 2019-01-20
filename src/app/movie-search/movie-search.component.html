@@ -169,7 +169,7 @@ Show movie that have been searched
   <div class="container" >
     <div  *ngFor="let movie of movies$ | async" class="card u-clearfix">
       <div class="card-media">
-        <img src="{{movie.img}}" alt=""
+        <img class="img" src="{{movie.img}}" alt=""
              class="card-media-img" />
         <div class="card-media-preview u-flex-center">
           <svg fill="#ffffff" height="18" viewBox="0 0 24 24" width="18"
@@ -182,12 +182,13 @@ Show movie that have been searched
       </div>
 
       <div class="card-body">
-        <h2 class="card-body-heading"> {{movie.title}}</h2>
+        <h2 class="card-body-heading">{{movie.title}}</h2>
         <br />
         <h4 class="card-body-heading">{{movie.director}}</h4>
+        <div class="card-body-options">
 
-       <a class="nav-link"routerLink="/detail/{{movie.id}}" class="card-button card-button-cta"> More info </a>
-      </div>
+          <a routerLink="/detail/{{movie.id}}" class="card-button card-button-cta"> More info </a>
+        </div>
     </div>
   </div>
 

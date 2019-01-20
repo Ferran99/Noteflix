@@ -8,7 +8,8 @@
       </h1>
       <div class="row">
         <div class="col-md-8">
-          <img class="img-fluid" width="75%" src="{{ movie.img }}" alt="">
+          <a (click)="playVideo()"><img class="img-fluid" width="75%" src="{{ movie.img }}" #img alt=""></a>
+          <video #video src="{{movie.url}}" class="img-fluid display-none"  width="75%"  controls></video>
         </div>
         <div class="col-md-4">
           <h3 class="my-3">Synopsis</h3>
