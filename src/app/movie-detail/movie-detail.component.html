@@ -1,8 +1,21 @@
 <br><br><br><br><br><br><br><br><br><br><br>
-<div *ngIf="movie">
-  <h2>{{movie.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{movie.id}}</div>
-  <div><span>id: </span>{{movie.title}}</div>
 
-  <button (click)="goBack()">go back</button>
+<div *ngIf="movie" class="container">
+  <div class="card">
+    <div class="container">
+      <h1 class="my-4">{{ movie.title | uppercase }}
+        <small>{{ movie.director }}</small>
+      </h1>
+      <div class="row">
+        <div class="col-md-8">
+          <img class="img-fluid" width="75%" src="{{ movie.img }}" alt="">
+        </div>
+        <div class="col-md-4">
+          <h3 class="my-3">Synopsis</h3>
+          <p>{{ movie.synopsis }}</p>
+        </div>
+        <button class="btn btn-primary" style="margin-top: 2%;" (click)="goBack()">Go back</button>
+      </div>
+    </div>
+  </div>
 </div>
