@@ -35,4 +35,10 @@ export class MoviesComponent implements OnInit {
 
 
   }
+
+  seeAllMovies(){
+
+    this.arrayMovies.nativeElement.classList.remove('display-none')
+
+  }
 }
