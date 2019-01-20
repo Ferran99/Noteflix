@@ -35,9 +35,7 @@ export class MovieSearchComponent implements OnInit {
         distinctUntilChanged(),
 
         // switch to new search observable each time the term changes
-        switchMap((term: string) => this.movieService.searchMovies(term)),
-        //switchMap((term:string)=>this.movieService.searchMoviesDirector(term)),
-       // switchMap((term:string)=>this.movieService.searchMoviesGenre(term)),
+        switchMap((term: string) => this.movieService.searchMovies(term) ),// this.movieService.searchMoviesDirector(term)), //this.movieService.searchMoviesGenre(term)),
       );
 
 
