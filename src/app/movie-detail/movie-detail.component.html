@@ -2,7 +2,7 @@
 
 <div *ngIf="movie" class="container">
   <div class="card">
-    <div class="container">
+    <div class="container" style="margin-left: 2%;">
       <h1 class="my-4">{{ movie.title | uppercase }}
         <small>{{ movie.director }}</small>
       </h1>
@@ -11,11 +11,11 @@
           <a (click)="playVideo()"><img class="img-fluid" width="75%" src="{{ movie.img }}" #img alt=""></a>
           <video #video src="{{movie.url}}" class="img-fluid display-none"  width="75%"  controls></video>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" style="margin-left: -7%;">
           <h3 class="my-3">Synopsis</h3>
           <p>{{ movie.synopsis }}</p>
         </div>
-        <button class="btn btn-primary" style="margin-top: 2%;" (click)="goBack()">Go back</button>
+        <button class="btn btn-primary" style="margin-top: 2%; margin-bottom: 2%;" (click)="goBack()">Go back</button>
       </div>
     </div>
   </div>
