@@ -12,7 +12,6 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
 
-
 import { MessagesComponent }    from './messages/messages.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -57,6 +56,7 @@ import {
   MatTreeModule
 
 } from '@angular/material';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +65,8 @@ import {
     HomeComponent,
     FavouritesComponent,
     MovieSearchComponent,
+
+    MovieDetailComponent,
     /*FavouritesListComponent,
     TVSeriesListComponent,
     MoviesListComponent*/

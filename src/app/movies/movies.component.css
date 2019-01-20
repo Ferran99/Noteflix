@@ -227,3 +227,18 @@ html {
   margin: 4px 2px;
   cursor: pointer;
 }
+.likeBlack{
+  padding: 500%;
+  background-image: url("https://daw2-ferran-castane.000webhostapp.com/Imatges/likeBlack.svg");
+  background-color: white;
+  outline: none;
+
+}
+.like{
+  padding: 500%;
+  background-image: url("https://daw2-ferran-castane.000webhostapp.com/Imatges/like.svg");
+  background-color: white;
+  outline: none;
+
+
+}

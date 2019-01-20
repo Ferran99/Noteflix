@@ -12,6 +12,8 @@ import { ElementRef } from '@angular/core';
 export class MoviesComponent implements OnInit {
 
   @ViewChild('arrayMovies') arrayMovies: ElementRef;
+  @ViewChild('corazonRojo') corazonRojo: ElementRef;
+  @ViewChild('croazonGris') croazonGris: ElementRef;
 
 
   movies: Movie[] = [];
@@ -38,7 +40,20 @@ export class MoviesComponent implements OnInit {
 
   seeAllMovies(){
 
-    this.arrayMovies.nativeElement.classList.remove('display-none')
+    this.arrayMovies.nativeElement.classList.remove('display-none');
 
+  }
+  showRed(){
+
+    this.corazonRojo.nativeElement.classList.remove('display-none');
+    this.croazonGris.nativeElement.classList.add('display-none');
+    console.log("hola");
+  }
+
+
+  showGrey() {
+    this.corazonRojo.nativeElement.classList.add('display-none');
+    this.croazonGris.nativeElement.classList.remove('display-none');
+    console.log('adeu');
   }
 }
