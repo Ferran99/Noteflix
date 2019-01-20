@@ -15,6 +15,7 @@ export class MovieDetailComponent implements OnInit {
   @Input() movie: Movie;
   @ViewChild('video') video: ElementRef;
   @ViewChild('img') img: ElementRef;
+  @ViewChild('icono') icono: ElementRef;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,6 +39,7 @@ export class MovieDetailComponent implements OnInit {
   }
 playVideo(){
     this.img.nativeElement.classList.add('display-none');
+    this.icono.nativeElement.classList.remove('card-media-preview');
     this.video.nativeElement.classList.remove('display-none');
 }
 
