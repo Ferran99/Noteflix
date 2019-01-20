@@ -1,4 +1,5 @@
 import { Movie } from './Movies';
+import {MovieFavourite} from "./MoviesFavourite";
 
 export const MOVIES: Movie[] = [
 
@@ -10,3 +11,4 @@ export const MOVIES: Movie[] = [
   { id: 6, title: "El regreso de Mary Poppins", director: "Rob Marshall", genre: "Fantasy", url: "https://daw2-ferran-castane.000webhostapp.com/Pelis/MaryPoppinsReturns.mp4", img: "https://daw2-ferran-castane.000webhostapp.com/img/MaryPoppinsReturns.jpg", synopsis: "Mary Poppins regresa a las vidas de Michael, ahora un padre soltero, y su hermana. La niñera llega acompañada de su amigo Jack, un optimista nato, con el propósito de ayudar a Michael, a quien van a desahuciar en cinco días si no paga una deuda." },
   { id: 7, title: "Antman 2", director: "Peyton Reed", genre: "Action", url: "https://daw2-ferran-castane.000webhostapp.com/Pelis/Antman2.mp4", img: "https://daw2-ferran-castane.000webhostapp.com/img/Antman2.jpg", synopsis: "Scott Lang vuelve a enfundarse el traje de Ant-Man para pelear codo con codo junto a la Avispa. La misión revelará a los dos superhéroes un secreto terrible y los enfrentará a su enemigo más poderoso." }
   ];
+export const MOVIESFAVOURITES: MovieFavourite[] = [];

@@ -5,6 +5,8 @@ import { MovieService } from '../movie.service';
 import { Movie } from "src/app/Movies";
 import {ViewChild} from '@angular/core';
 import { ElementRef } from '@angular/core';
+import { MovieFavourite } from '../MoviesFavourite';
+
 
 @Component({
   selector: 'app-movie-detail',
@@ -13,9 +15,12 @@ import { ElementRef } from '@angular/core';
 })
 export class MovieDetailComponent implements OnInit {
   @Input() movie: Movie;
+  @Input() movieFavourite: MovieFavourite;
   @ViewChild('video') video: ElementRef;
   @ViewChild('img') img: ElementRef;
   @ViewChild('icono') icono: ElementRef;
+  @ViewChild('Grey') Grey: ElementRef;
+  @ViewChild('Red') Red: ElementRef;
 
   constructor(
     private route: ActivatedRoute,
@@ -42,5 +47,14 @@ playVideo(){
     this.icono.nativeElement.classList.remove('card-media-preview');
     this.video.nativeElement.classList.remove('display-none');
 }
+showRed(){
+    this.Grey.nativeElement.classList.add('display-none');
+    this.Red.nativeElement.classList.remove('display-none');
+    //this.movieFavourite=push(this.movie.id, this.movie.title, this.movie.director, this.movie.genre, this.movie.url, this.movie.img, this.movie.synopsis);
 
+}
+showGrey(){
+    this.Grey.nativeElement.classList.remove('display-none');
+    this.Red.nativeElement.classList.add('display-none');
+  }
 }

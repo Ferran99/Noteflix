@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Movie } from 'src/app/Movies';
-import { InMemoryDbService } from 'angular-in-memory-web-api';
+import {MovieFavourite} from "./MoviesFavourite";import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +18,16 @@ export class InMemoryDataService {
       { id: 7, title: "Antman 2", director: "Peyton Reed", genre: "Action", url: "https://daw2-ferran-castane.000webhostapp.com/Pelis/Antman2.mp4", img: "https://daw2-ferran-castane.000webhostapp.com/img/Antman2.jpg", synopsis: "Scott Lang vuelve a enfundarse el traje de Ant-Man para pelear codo con codo junto a la Avispa. La misión revelará a los dos superhéroes un secreto terrible y los enfrentará a su enemigo más poderoso." }
     ];
     return {movies};
+    const moviesFavourites =[];
+    return {moviesFavourites};
   }
   genId(movies: Movie[]): number {
     return movies.length > 0 ? Math.max(...movies.map(movie => movie.id)) + 1 : 11;
   }
+  geenId(moviesFavourites: MovieFavourite[]): number{
+    return moviesFavourites.length > 0? Math.max(...moviesFavourites.map(moviesFavourties=> moviesFavourties.id)) +1 :11;
+  }
+
 
   constructor() { }
 }
