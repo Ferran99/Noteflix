@@ -3,7 +3,6 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Movie } from './Movies';
-import { MovieFavourite } from './MoviesFavourite';
 import { MessageService } from './message.service';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -27,13 +26,14 @@ export class MovieService {
               catchError(this.handleError('getMovies', []))
             );
   }
-  getFavourtieMovies(): Observable <MovieFavourite[]>{
-    return this.http.get<MovieFavourite[]>(this.moviesUrl)
-      .pipe(
-        tap(_ => this.log('fetched movies')),
-        catchError(this.handleError('getFavourtieMovies', []))
-      )
+
+  updateMovie(movie: any ): Observable<any> {
+    return this.http.put(this.moviesUrl, movie, httpOptions).pipe(
+      tap(_ => this.log(`updated movie favourite=${movie.id}`)),
+      catchError(this.handleError<any>('updateMovie'))
+    );
   }
+
 
   getMovie(id: number): Observable<Movie> {
     const url = `${this.moviesUrl}/${id}`;

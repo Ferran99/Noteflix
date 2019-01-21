@@ -5,7 +5,6 @@ import { MovieService } from '../movie.service';
 import { Movie } from "src/app/Movies";
 import {ViewChild} from '@angular/core';
 import { ElementRef } from '@angular/core';
-import { MovieFavourite } from '../MoviesFavourite';
 
 
 @Component({
@@ -15,7 +14,7 @@ import { MovieFavourite } from '../MoviesFavourite';
 })
 export class MovieDetailComponent implements OnInit {
   @Input() movie: Movie;
-  @Input() movieFavourite: MovieFavourite;
+
   @ViewChild('video') video: ElementRef;
   @ViewChild('img') img: ElementRef;
   @ViewChild('icono') icono: ElementRef;
@@ -24,7 +23,7 @@ export class MovieDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private heroService: MovieService,
+    private movieService: MovieService,
     private location: Location
   ) {}
 
@@ -32,10 +31,11 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovie();
+
   }
   getMovie(){
     const id = +this.route.snapshot.paramMap.get('id');
-    this.heroService.getMovie(id)
+    this.movieService.getMovie(id)
       .subscribe(movie => this.movie = movie);
   }
 
@@ -50,11 +50,15 @@ playVideo(){
 showRed(){
     this.Grey.nativeElement.classList.add('display-none');
     this.Red.nativeElement.classList.remove('display-none');
-    //this.movieFavourite=push(this.movie.id, this.movie.title, this.movie.director, this.movie.genre, this.movie.url, this.movie.img, this.movie.synopsis);
-
+    this.addFavourite();
 }
 showGrey(){
     this.Grey.nativeElement.classList.remove('display-none');
     this.Red.nativeElement.classList.add('display-none');
   }
+ addFavourite(): void {
+    this.movie.favourite = true;
+    this.movieService.updateMovie(this.movie)
+      .subscribe(()=> console.log('Added to favourites'));
+ }
 }

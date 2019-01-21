@@ -11,3 +11,21 @@
     <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
   </button>
 </div>
+<div  *ngFor="let movie of Movie " class="card u-clearfix">
+  <div class="card-media">
+    <img class="img" src="{{movie['img']}}" alt=""
+         class="card-media-img" />
+
+    <span class="card-media-tag card-media-tag-orange">{{movie["genre"]}}</span>
+  </div>
+
+  <div class="card-body">
+    <h2 class="card-body-heading">{{movie["title"]}}</h2>
+    <br />
+    <h4 class="card-body-heading">{{movie["director"]}}</h4>
+    <h5 class="card-body-heading">{{movie["favourite"]}}</h5>
+    <div class="card-body-options">
+
+      <a routerLink="/detail/{{movie.id}}" class="card-button card-button-cta"> More info </a>
+    </div>
+  </div>

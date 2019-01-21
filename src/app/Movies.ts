@@ -7,5 +7,6 @@ export class Movie {
     url: string;
     img: string;
     synopsis: string;
+    favourite: boolean;
     
 }
