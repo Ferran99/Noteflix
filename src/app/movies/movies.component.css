@@ -1,5 +1,4 @@
 .basic-container {
-
   display: inline-block;
 }
 
@@ -242,6 +241,9 @@ html {
   background-image: url("https://daw2-ferran-castane.000webhostapp.com/Imatges/like.svg");
   background-color: white;
   outline: none;
+}
 
-
+.col-centered {
+  margin-left: auto;
+  margin-right: auto;
 }

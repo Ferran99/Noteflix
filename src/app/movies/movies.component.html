@@ -1,4 +1,9 @@
-<app-movie-search (click)="movieHide()"></app-movie-search>
+<div class="row">
+  <div class="col-sm-3 col-centered">
+    <app-movie-search (click)="movieHide()"></app-movie-search>
+    <button type="button" class="allMovies" (click)="seeAllMovies()">Show all movies </button>
+  </div>
+</div>
 
 <div class="container" #arrayMovies>
   <div  *ngFor="let movie of movies " class="card u-clearfix">
@@ -20,4 +25,3 @@
   </div>
 </div>
 </div>
-<button type="button" class="allMovies" (click)="seeAllMovies()">Show all movies </button>
