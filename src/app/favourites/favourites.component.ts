@@ -50,17 +50,10 @@ export class FavouritesComponent implements OnInit {
     this.icono.nativeElement.classList.remove('card-media-preview');
     this.video.nativeElement.classList.remove('display-none');
   }
-  showRed(){
-    this.movie.favourite = true;
-    this.Grey.nativeElement.classList.add('display-none');
-    this.Red.nativeElement.classList.remove('display-none');
-    this.addFavourite(this.movie.favourite);
-  }
-  showGrey(){
-    this.movie.favourite = false;
-    this.addFavourite(this.movie.favourite);
-    this.Grey.nativeElement.classList.remove('display-none');
-    this.Red.nativeElement.classList.add('display-none');
+
+  error(){
+    alert('Error! You must go to movies to unsubscribe this film from favourite');
+
   }
   addFavourite(favourite): void {
     favourite = this.movie.favourite;
