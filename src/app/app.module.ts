@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies/movies.component';
 import { HomeComponent } from './home/home.component';
-import { FavouritesComponent } from './favourites/favourites.component';
+import {FavoritesMoviesPipe, FavouritesComponent} from './favourites/favourites.component';
 import { FormsModule }    from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 
@@ -65,7 +65,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
     HomeComponent,
     FavouritesComponent,
     MovieSearchComponent,
-
+    FavoritesMoviesPipe,
     MovieDetailComponent,
     /*FavouritesListComponent,
     TVSeriesListComponent,

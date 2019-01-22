@@ -1,17 +1,47 @@
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-<h3>Icon Buttons</h3>
-<div class="example-button-row">
 
-  <button mat-icon-button color="warn" class=""  (click)="showGreey()">
-    <mat-icon aria-label="Example icon-button with a heart icon" #red>favorite</mat-icon>
-  </button>
-  <button mat-icon-button disabled class="" #greey (click)="show()">
-    <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
-  </button>
+
+<div  *ngFor="let movie of Movie | favoritesMovies"  class="container">
+  <div class="card">
+    <div class="container" style="margin-left: 2%;">
+      <h1 class="my-4">{{ movie.title | uppercase }}
+        <small>{{ movie.director }}</small>
+      </h1>
+      <div class="row">
+
+        <div class="col-md-8">
+          <a (click)="playVideo()"><img class="img-fluid" width="75%" src="{{ movie.img }}" #img alt=""></a>
+          <video #video src="{{movie.url}}" class="img-fluid display-none"  width="75%"  controls></video>
+          <div #icono class="card-media-preview u-flex-center">
+            <a (click)="playVideo()"><svg fill="#ffffff" height="18" viewBox="0 0 24 24" width="18"
+                                          xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 5v14l11-7z" />
+              <path d="M0 0h24v24H0z" fill="none" />
+            </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4" style="margin-left: -7%;">
+          <h3 class="my-3">Synopsis</h3>
+          <p>{{ movie.synopsis }}</p>
+        </div>
+        <div class=" " [ngClass]="{'display-none' : movie.favourite}" #Grey>
+          <button class="hartGrey"  (click)="showRed()"></button>
+        </div>
+        <div #Red class=" " [ngClass]="{'display-none' : !movie.favourite}" >
+          <button class="hartRed"   (click)="showGrey()"></button>
+        </div>
+        <button class="btn btn-primary" style="margin-top: 2%; margin-bottom: 2%;" (click)="goBack()">Go back</button>
+      </div>
+    </div>
+  </div>
 </div>
-<div  *ngFor="let movie of Movie " class="card u-clearfix">
+
+<!--
+<div class="card u-clearfix">
   <div class="card-media">
     <img class="img" src="{{movie['img']}}" alt=""
          class="card-media-img" />
@@ -23,9 +53,9 @@
     <h2 class="card-body-heading">{{movie["title"]}}</h2>
     <br />
     <h4 class="card-body-heading">{{movie["director"]}}</h4>
-    <h5 class="card-body-heading">{{movie["favourite"]}}</h5>
+
     <div class="card-body-options">
 
       <a routerLink="/detail/{{movie.id}}" class="card-button card-button-cta"> More info </a>
     </div>
-  </div>
+  </div> -->

@@ -20,7 +20,6 @@ const routes: Routes = [
    { path: 'movies', component: MoviesListComponent}
 */];
 
-
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]

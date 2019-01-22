@@ -25,10 +25,10 @@
           <h3 class="my-3">Synopsis</h3>
           <p>{{ movie.synopsis }}</p>
         </div>
-        <div class=" " #Grey>
+        <div class=" " [ngClass]="{'display-none' : movie.favourite}" #Grey>
           <button class="hartGrey"  (click)="showRed()"></button>
         </div>
-        <div #Red class="display-none">
+        <div #Red class=" " [ngClass]="{'display-none' : !movie.favourite}" >
           <button class="hartRed"   (click)="showGrey()"></button>
         </div>
         <button class="btn btn-primary" style="margin-top: 2%; margin-bottom: 2%;" (click)="goBack()">Go back</button>
